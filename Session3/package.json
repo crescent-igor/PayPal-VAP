@@ -1,0 +1,17 @@
+{
+  "name": "session3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "eslint": "^6.8.0",
+    "string-format": "^2.0.0"
+  }
+}

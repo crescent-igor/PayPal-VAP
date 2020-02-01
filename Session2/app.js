@@ -8,14 +8,4 @@ request.get('https://raw.githubusercontent.com/jpatokal/openflights/master/data/
         dataSet2.push(element.split(","));
     });
 
-    var City = [];
-
-    CityObj = {
-        name: "",
-        airports: []
-    }
-
-
-
-
 });
