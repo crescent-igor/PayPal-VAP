@@ -7,5 +7,6 @@ request.get('https://raw.githubusercontent.com/jpatokal/openflights/master/data/
     dataSet.forEach(element => {
         dataSet2.push(element.split(","));
     });
+    console.log(dataSet2[0]);
 
 });
