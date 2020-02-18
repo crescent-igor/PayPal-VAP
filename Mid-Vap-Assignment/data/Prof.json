@@ -1,0 +1,40 @@
+[
+    {
+        "profID": "Alok",
+        "Courses": [
+            "1001"
+        ],
+        "Students": [
+            []
+        ]
+    },
+    {
+        "profID": "Radhika",
+        "Courses": [
+            "1001",
+            "1004"
+        ],
+        "Students": [
+            [],
+            []
+        ]
+    },
+    {
+        "profID": "Geetha",
+        "Courses": [
+            "1001"
+        ],
+        "Students": [
+            []
+        ]
+    },
+    {
+        "profID": "Rekha",
+        "Courses": [
+            "1001"
+        ],
+        "Students": [
+            []
+        ]
+    }
+]

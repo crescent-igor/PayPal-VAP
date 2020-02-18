@@ -1,38 +1,14 @@
 [
     {
+        "username": "cresc3ent",
         "password": "qrwpass@3",
-        "username": "cresc3ent"
+        "Courses": [],
+        "Profs": []
     },
     {
+        "username": "Amrit",
         "password": "qrwpass@3",
-        "username": "cre1scent"
-    },
-    {
-        "password": "pasfgws@3",
-        "username": "cres4cent"
-    },
-    {
-        "password": "pasfgws@3",
-        "username": "crescdfent"
-    },
-    {
-        "password": "pass@3e43",
-        "username": "crescengwet"
-    },
-    {
-        "password": "pass@3e43",
-        "username": "crescen12t"
-    },
-    {
-        "password": "pas123s@3",
-        "username": "cregscent"
-    },
-    {
-        "password": "pas123s@3",
-        "username": "cr2escent"
-    },
-    {
-        "password": "igor",
-        "username": "crescent"
+        "Courses": [],
+        "Profs": []
     }
 ]

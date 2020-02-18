@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');
 var app = express();
 
+app.set('views', './src/views');
+app.set('view engine', 'pug');
 
 function readFile(filename) {
     let promise = new Promise((resolve, reject) => {
@@ -31,7 +33,10 @@ app.get('/login', (req, res) => {
         })
         .then((bool) => {
             if (bool) {
-                res.redirect("dashboard");
+                res.render('index', {
+                    username: userCreds.username,
+                    password: userCreds.password
+                });
             } else {
                 res.send("Wrong Creds");
             }

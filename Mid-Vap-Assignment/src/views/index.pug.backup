@@ -8,9 +8,10 @@ html
                 h1(class="text-center") College.
         div(class="container")
             div(class="row")
-                h1(id='Username') Welcome #{username}
-                 
-
+                div(class="col-lg-6 text-center btn-success" onclick="window.open('student');")
+                    h2 Student
+                div(class="col-lg-6 text-center btn-danger" id="teacher" onclick="window.open('teacher');")
+                    h2 Teacher
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
         //- script(src="/home/amrit/Documents/VIT/win2019-2020/PayPal/Mid-Vap-Assignment/src/views/Teacher-Student-Handeler.js" type="text/javascript")
