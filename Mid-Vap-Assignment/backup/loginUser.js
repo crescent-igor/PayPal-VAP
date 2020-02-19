@@ -6,6 +6,13 @@ const session = require('express-session');
 var app = express();
 
 app.use(session({ secret: 'ssshhhhh' }));
+app.use(express.static(path.join(__dirname, '/public/')));
+app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')))
+app.use('/img', express.static(path.join(__dirname, '/public/img')))
+
+
 
 var sess;
 app.set('views', './src/views');
@@ -241,6 +248,96 @@ app.get('/chooseCourse', (req, res) => {
 
 });
 
+
+
+app.get('/SignUpStudentSubmit', (req, res) => {
+    userCreds = req.query
+    readFile(path.join(__dirname, 'data', 'Students.json'))
+        .then((DB) => {
+            flag = true;
+            DB.forEach(element => {
+                if (element.username == userCreds.username) {
+                    flag = false;
+                    return;
+                }
+            });
+            if (flag) {
+                DB.push({
+                    username: userCreds.username,
+                    password: userCreds.password,
+                    Courses: [],
+                    Profs: [],
+                    CoursesNames: []
+                });
+
+            }
+            return { content: JSON.stringify(DB), flag: flag }
+        })
+        .then((content) => {
+            if (content.flag) {
+
+                fs.writeFile(path.join(__dirname, 'data', 'Students.json'), content.content, function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("The file was saved!");
+                    res.send("Signed up!")
+                });
+            } else {
+                res.send("Student with this username already exists")
+            }
+        })
+
+});
+
+
+app.get('/SignUpProfSubmit', (req, res) => {
+    userCreds = req.query
+    readFile(path.join(__dirname, 'data', 'Prof.json'))
+        .then((DB) => {
+            flag = true;
+            DB.forEach(element => {
+                if (element.username == userCreds.username) {
+                    flag = false;
+                    return;
+                }
+            });
+            if (flag) {
+                DB.push({
+                    profID: userCreds.username,
+                    Courses: [],
+                    Students: [],
+                    CoursesNames: [],
+                    password: userCreds.password
+                });
+
+            }
+            return { content: JSON.stringify(DB), flag: flag }
+        })
+        .then((content) => {
+            if (content.flag) {
+
+                fs.writeFile(path.join(__dirname, 'data', 'Prof.json'), content.content, function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("The file was saved!");
+                    res.send("Signed up!")
+                });
+            } else {
+                res.send("Professor with this username already exists")
+            }
+        })
+
+});
+
+app.get('/SignUpStudent', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'StudentSignUp.html'));
+});
+
+app.get('/SignUpProf', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'ProfSignUp.html'));
+});
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));

@@ -4,16 +4,10 @@ const express = require('express');
 const session = require('express-session');
 
 var app = express();
+
+app.use(session({ secret: 'ssshhhhh' }));
+
 var sess;
-
-app.use(session({ secret: 'ssshh' }));
-app.use(express.static(path.join(__dirname, '/public/')));
-app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')))
-app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')))
-app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')))
-app.use('/img', express.static(path.join(__dirname, '/public/img')))
-
-
 app.set('views', './src/views');
 app.set('view engine', 'pug');
 
@@ -82,12 +76,7 @@ app.get('/addCourse', (req, res) => {
                     return console.log(err);
                 }
                 console.log("The file was saved!");
-                res.render('alert', {
-                    alert: "Course Added Successfuly",
-                    link: "/profDash",
-                    linkMessage: "Dashboard",
-                    label: "success"
-                })
+                res.send("Course Added")
             });
         })
 
@@ -113,12 +102,7 @@ app.get('/loginProf', (req, res) => {
                 sess.username = userCreds.username;
                 res.redirect('/profDash');
             } else {
-                res.render('alert', {
-                    alert: "Ah! Username or password is wrong.",
-                    link: "/",
-                    linkMessage: "Try Again?",
-                    label: "danger"
-                })
+                res.send("Wrong Creds");
             }
         })
         .catch((err) => (console.log(err)))
@@ -147,12 +131,7 @@ app.get('/loginStudent', (req, res) => {
                 sess.username = userCreds.username;
                 res.redirect('/dashboard');
             } else {
-                res.render('alert', {
-                    alert: "Ah! Username or password is wrong.",
-                    link: "/",
-                    linkMessage: "Try Again?",
-                    label: "danger"
-                })
+                res.send("Wrong Creds");
             }
         })
         .catch((err) => (console.log(err)))
@@ -256,14 +235,7 @@ app.get('/chooseCourse', (req, res) => {
                         return true
                     });
                 })
-                .then((foo) => {
-                    res.render('alert', {
-                        alert: "Registered Successfully",
-                        link: "/dashboard",
-                        linkMessage: "Dashboard",
-                        label: "success"
-                    })
-                });
+                .then((foo) => (res.send("Registered Successfully")));
 
         })
 
@@ -302,22 +274,12 @@ app.get('/SignUpStudentSubmit', (req, res) => {
                         return console.log(err);
                     }
                     console.log("The file was saved!");
-                    res.render('alert', {
-                        alert: "Signed Up Successfully",
-                        link: "/",
-                        linkMessage: "Log In",
-                        label: "success"
-                    })
+                    res.send("Signed up!")
                 });
             } else {
-                res.render('alert', {
-                    alert: "Student with this username already exists",
-                    link: "/SignUpStudent",
-                    linkMessage: "Try again?",
-                    label: "success"
-                });
+                res.send("Student with this username already exists")
             }
-        });
+        })
 
 });
 
@@ -353,20 +315,10 @@ app.get('/SignUpProfSubmit', (req, res) => {
                         return console.log(err);
                     }
                     console.log("The file was saved!");
-                    res.render('alert', {
-                        alert: "Signed Up Successfully",
-                        link: "/",
-                        linkMessage: "Log In",
-                        label: "success"
-                    })
+                    res.send("Signed up!")
                 });
             } else {
-                res.render('alert', {
-                    alert: "Professor with this username already exists",
-                    link: "/SignUpProf",
-                    linkMessage: "Try again?",
-                    label: "success"
-                });
+                res.send("Professor with this username already exists")
             }
         })
 
@@ -383,6 +335,7 @@ app.get('/SignUpProf', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
+
 
 
 app.listen(3000, () => {

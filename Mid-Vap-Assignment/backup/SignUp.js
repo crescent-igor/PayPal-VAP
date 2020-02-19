@@ -91,7 +91,7 @@ app.get('/SignUpProfSubmit', (req, res) => {
                     res.send("Signed up!")
                 });
             } else {
-                res.send("Student with this username already exists")
+                res.send("Professor with this username already exists")
             }
         })
 
