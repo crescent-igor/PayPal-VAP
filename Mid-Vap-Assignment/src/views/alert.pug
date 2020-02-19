@@ -1,15 +1,16 @@
 html
     head
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
-        title My App
-    body
+        title Porto
+        style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
+    body(style="background-image: url('img/bg2.jpg');")
         div(class="container jumbotron")
-            div(class="row bg-primary")
+            div(class="row")
                 h1(class="text-center") Porto
         dic(class="container")
             div(class="row")    
-                div(class="text-center")
-                    h2 #{alert}
+                div(class="col text-center")
+                    h2(class="jumbotron") #{alert}
                 form(action=link class="form text-center")
                     input(class="btn btn-lg btn-danger" type="submit" value=linkMessage) 
 

@@ -2,13 +2,14 @@ html
     head
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
         title Porto
-    body
+        style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
+    body(style="background-image: url('img/bg2.jpg');")
         div(class="container jumbotron")
-            div(class="row bg-primary")
-                h1(class="text-center") College.
-        div(class="container")
             div(class="row")
-                h1(id='Username') Welcome #{username}
+                h1(class="text-center") Porto
+        div(class="container")
+            div(class="row jumbotron")
+                h2(id='Username') Welcome #{username}
                 form(action='/addCourse')
                     label Course ID
                     input(type=text class="form form-control" name="courseID")
@@ -16,10 +17,11 @@ html
                     input(type=text class="form form-control" name="courseName")
                     br
                     input(type="submit" value="Add Course" class="btn-success btn")
+                h3(id='Username') Registered Classes  
                 table(class="table")
                     each val in display
                         tr
-                            th #{val.Course}
+                            th Course-ID #{val.Course}
                         each student in val.Students
                             tr
                                 td #{student} 

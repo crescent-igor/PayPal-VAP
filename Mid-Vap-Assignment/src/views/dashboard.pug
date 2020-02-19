@@ -2,13 +2,14 @@ html
     head
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
         title Porto
-    body
+        style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
+    body(style="background-image: url('img/bg2.jpg');")
         div(class="container jumbotron")
-            div(class="row bg-primary")
-                h1(class="text-center") College.
-        div(class="container")
             div(class="row")
-                h1(id='Username') Registration Dashboard
+                h1(class="text-center") Porto
+        div(class="container")
+            div(class="row jumbotron")
+                h2(id='Username') Registration Dashboard
                 h3(class="text-center") Registered Courses
                 table(class="table")
                     tr
@@ -26,7 +27,7 @@ html
 
                 h3(class="text-center") Courses Offered
                 form(action='/chooseCourse')
-                    table(class="table")
+                    table(class="table table-hover")
                         tr
                             th Course Code
                             th Course Name

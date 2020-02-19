@@ -9,6 +9,7 @@ var sess;
 app.use(session({ secret: 'ssshh' }));
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')))
+app.use('/css', express.static(path.join(__dirname, '/public/css')))
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')))
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')))
 app.use('/img', express.static(path.join(__dirname, '/public/img')))
