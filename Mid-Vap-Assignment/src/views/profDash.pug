@@ -1,0 +1,37 @@
+html
+    head
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+        title My App
+    body
+        div(class="container jumbotron")
+            div(class="row bg-primary")
+                h1(class="text-center") College.
+        div(class="container")
+            div(class="row")
+                h1(id='Username') Welcome #{username}
+                form(action='/addCourse')
+                    label Course ID
+                    input(type=text class="form form-control" name="courseID")
+                    label Course Name
+                    input(type=text class="form form-control" name="courseName")
+                    br
+                    input(type="submit" value="Add Course" class="btn-success btn")
+                table(class="table")
+                    each val in display
+                        tr
+                            th #{val.Course}
+                        each student in val.Students
+                            tr
+                                td #{student} 
+
+
+
+
+
+
+
+
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+        //- script(src="/home/amrit/Documents/VIT/win2019-2020/PayPal/Mid-Vap-Assignment/src/views/Teacher-Student-Handeler.js" type="text/javascript")

@@ -16,6 +16,10 @@ function readFile(filename) {
     return promise
 }
 
+app.get('/profDash', (req, res) => {
+    res.render('profDash');
+});
+
 app.get('/addCourse', (req, res) => {
     console.log(req.query)
     courseAdd = req.query
@@ -25,6 +29,7 @@ app.get('/addCourse', (req, res) => {
                 if (element.profID == courseAdd.profID) {
                     console.log("Reached");
                     element.Courses.push(courseAdd.courseID)
+                    element.CoursesNames.push(courseAdd.courseName)
                     element.Students.push([])
                 }
             });

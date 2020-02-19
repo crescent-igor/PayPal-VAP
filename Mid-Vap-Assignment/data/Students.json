@@ -1,14 +1,39 @@
 [
     {
+        "username": "Adarsh",
+        "password": "password",
+        "Courses": [],
+        "CoursesNames": [],
+        "Profs": []
+    },
+    {
         "username": "cresc3ent",
         "password": "qrwpass@3",
         "Courses": [],
+        "CoursesNames": [],
         "Profs": []
     },
     {
         "username": "Amrit",
-        "password": "qrwpass@3",
+        "password": "pass",
+        "Courses": [
+            "1001",
+            "2001"
+        ],
+        "CoursesNames": [
+            "Math",
+            "NLP"
+        ],
+        "Profs": [
+            "Alok",
+            "Geetha"
+        ]
+    },
+    {
+        "username": "Pratinav",
+        "password": "iamakid",
         "Courses": [],
-        "Profs": []
+        "Profs": [],
+        "CoursesNames": []
     }
 ]

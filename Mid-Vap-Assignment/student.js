@@ -38,18 +38,19 @@ app.get('/chooseCourse', (req, res) => {
             });
         })
         .then((foo) => {
-            readFile(path.join(__dirname, 'data', 'Student.json'))
+            readFile(path.join(__dirname, 'data', 'Students.json'))
                 .then((DB) => {
                     DB.forEach(element => {
                         if (element.username == chooseCourse.studentID) {
                             element.Courses.push(chooseCourse.courseID);
                             element.Profs.push(chooseCourse.profID)
+                            
                         }
                     });
                     return JSON.stringify(DB);
                 })
                 .then((content) => {
-                    fs.writeFile(path.join(__dirname, 'data', 'Student.json'), content, function (err) {
+                    fs.writeFile(path.join(__dirname, 'data', 'Students.json'), content, function (err) {
                         if (err) {
                             return console.log(err);
                         }

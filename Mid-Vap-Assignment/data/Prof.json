@@ -2,11 +2,20 @@
     {
         "profID": "Alok",
         "Courses": [
-            "1001"
+            "1001",
+            "1010"
         ],
         "Students": [
+            [
+                "Amrit"
+            ],
             []
-        ]
+        ],
+        "CoursesNames": [
+            "Math",
+            "Deep Learning"
+        ],
+        "password": "password"
     },
     {
         "profID": "Radhika",
@@ -17,16 +26,30 @@
         "Students": [
             [],
             []
-        ]
+        ],
+        "CoursesNames": [
+            "Math",
+            "Artificial Intelligence"
+        ],
+        "password": "password"
     },
     {
         "profID": "Geetha",
         "Courses": [
-            "1001"
+            "1001",
+            "2001"
         ],
         "Students": [
-            []
-        ]
+            [],
+            [
+                "Amrit"
+            ]
+        ],
+        "CoursesNames": [
+            "Math",
+            "NLP"
+        ],
+        "password": "password"
     },
     {
         "profID": "Rekha",
@@ -35,6 +58,17 @@
         ],
         "Students": [
             []
-        ]
+        ],
+        "CoursesNames": [
+            "Math"
+        ],
+        "password": "password"
+    },
+    {
+        "profID": "Harini",
+        "Courses": [],
+        "Students": [],
+        "CoursesNames": [],
+        "password": "iwannaspark"
     }
 ]

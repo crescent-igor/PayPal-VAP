@@ -1,8 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const session = require('express-session');
+
 var app = express();
 
+app.use(session({ secret: 'ssshhhhh' }));
+
+var sess;
 app.set('views', './src/views');
 app.set('view engine', 'pug');
 
@@ -16,9 +21,99 @@ function readFile(filename) {
     return promise
 }
 
-app.get('/login', (req, res) => {
+
+app.get('/profDash', (req, res) => {
+    sess = req.session;
+    console.log(sess)
+    var Display = [];
+
+    readFile(path.join(__dirname, 'data', 'Prof.json'))
+        .then((DB) => {
+
+            DB.forEach(element => {
+                if (element.profID == sess.username) {
+                    var count = 0;
+                    element.Courses.forEach(course => {
+
+                        Display.push({
+                            Course: course,
+                            Students: element.Students[count]
+                        });
+                        count = count + 1
+
+                    });
+                }
+            });
+        })
+        .then((DB) => {
+            console.log(Display)
+            res.render('profDash', {
+                username: sess.username,
+                display: Display
+            })
+        })
+});
+
+app.get('/addCourse', (req, res) => {
+    console.log(req.query)
+    courseAdd = req.query
+    courseAdd.profID = req.session.username
+    readFile(path.join(__dirname, 'data', 'Prof.json'))
+        .then((DB) => {
+            DB.forEach(element => {
+                if (element.profID == courseAdd.profID) {
+                    console.log("Reached");
+                    element.Courses.push(courseAdd.courseID)
+                    element.CoursesNames.push(courseAdd.courseName)
+                    element.Students.push([])
+                }
+            });
+            return JSON.stringify(DB)
+        })
+        .then((content) => {
+            fs.writeFile(path.join(__dirname, 'data', 'Prof.json'), content, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+                res.send("Course Added")
+            });
+        })
+
+});
+
+
+app.get('/loginProf', (req, res) => {
+    userCreds = req.query
+    console.log(userCreds)
+    sess = req.session;
+    readFile(path.join(__dirname, 'data', 'Prof.json'))
+        .then((JSON) => {
+            var flag = false;
+            JSON.forEach(element => {
+                if (element.profID == userCreds.username && element.password == userCreds.password) {
+                    flag = true;
+                }
+            });
+            return flag;
+        })
+        .then((bool) => {
+            if (bool) {
+                sess.username = userCreds.username;
+                res.redirect('/profDash');
+            } else {
+                res.send("Wrong Creds");
+            }
+        })
+        .catch((err) => (console.log(err)))
+});
+
+
+
+app.get('/loginStudent', (req, res) => {
     console.log(req.query)
     userCreds = req.query
+    sess = req.session;
     readFile(path.join(__dirname, 'data', 'Students.json'))
         .then((JSON) => {
             var flag = false;
@@ -33,16 +128,124 @@ app.get('/login', (req, res) => {
         })
         .then((bool) => {
             if (bool) {
-                res.render('index', {
-                    username: userCreds.username,
-                    password: userCreds.password
-                });
+                sess.username = userCreds.username;
+                res.redirect('/dashboard');
             } else {
                 res.send("Wrong Creds");
             }
         })
         .catch((err) => (console.log(err)))
 });
+
+app.get('/dashboard', (req, res) => {
+    console.log(req.query)
+    console.log(req.session)
+    sess = req.session;
+    studentDet = req.query
+    var Courses = [];
+    var CoursesTakenDisplay = [];
+    readFile(path.join(__dirname, 'data', 'Students.json'))
+        .then((DB) => {
+            var CoursesTaken;
+
+            DB.forEach(element => {
+                if (element.username == sess.username) {
+                    CoursesTaken = element.Courses;
+                    var count = 0;
+                    element.Courses.forEach(course => {
+                        CoursesTakenDisplay.push([course, element.Profs[count], element.CoursesNames[count]]);
+                        count = count + 1;
+                    });
+                }
+            });
+            return CoursesTaken;
+        })
+        .then((CoursesTaken) => {
+            readFile(path.join(__dirname, 'data', 'Prof.json'))
+                .then((DB) => {
+                    DB.forEach(element => {
+                        count = 0;
+                        element.Courses.forEach(course => {
+                            if (!CoursesTaken.includes(course)) {
+                                Courses.push([course, element.CoursesNames[count], element.profID]);
+                            }
+                            count = count + 1;
+                        });
+                    });
+                    return Courses
+                })
+                .then((list) => {
+                    console.log(CoursesTakenDisplay);
+                    res.render('dashboard', {
+                        list: list,
+                        taken: CoursesTakenDisplay
+                    })
+                })
+        });
+});
+
+
+app.get('/chooseCourse', (req, res) => {
+    console.log(req.query)
+    var query = JSON.parse(req.query.chooseCourse)
+    var chooseCourse = {
+        courseID: query[0],
+        profID: query[2],
+        courseName: query[1],
+        studentID: req.session.username
+    }
+    readFile(path.join(__dirname, 'data', 'Prof.json'))
+        .then((DB) => {
+            DB.forEach(element => {
+                if (element.profID == chooseCourse.profID) {
+                    element.Students[element.Courses.indexOf(chooseCourse.courseID)].push(chooseCourse.studentID);
+                }
+            });
+            return JSON.stringify(DB)
+        })
+        .then((content) => {
+            fs.writeFile(path.join(__dirname, 'data', 'Prof.json'), content, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+                return true
+            });
+        })
+        .then((foo) => {
+            readFile(path.join(__dirname, 'data', 'Students.json'))
+                .then((DB) => {
+                    DB.forEach(element => {
+                        if (element.username == chooseCourse.studentID) {
+                            element.Courses.push(chooseCourse.courseID);
+                            element.Profs.push(chooseCourse.profID)
+                            element.CoursesNames.push(chooseCourse.courseName)
+
+                        }
+                    });
+                    return JSON.stringify(DB);
+                })
+                .then((content) => {
+                    fs.writeFile(path.join(__dirname, 'data', 'Students.json'), content, function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log("The file was saved!");
+
+                        return true
+                    });
+                })
+                .then((foo) => (res.send("Registered Successfully")));
+
+        })
+
+});
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
 
 
 app.listen(3000, () => {

@@ -1,23 +1,76 @@
 <html>
 
 <head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
 </head>
 
 <body>
-	<form action="/dashboard" method="GET">
-		<label for="username">Username:</label><br>
-		<input type="text" id="username" name="uname"><br>
-		<label for="password">Password:</label><br>
-		<input type="password" id="password" name="pswd">
-		<br>
-		<input type="radio" name="cat" id="Professor"> Professor
-		<br>
-		<input type="radio" name="cat" id="Student"> Student
-		<br>
-		<input type="submit">
-	</form>
-	<a href="SignUp">SignUp</a>
+
+	<div class="container jumbotron">
+		<div class="row  bg-primary">
+			<h1 class="text-center">
+				College.
+			</h1>
+		</div>
+	</div>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-6">
+
+				<h2 class="text-center">
+					Student Login
+				</h2>
+			</div>
+			<div class="col-lg-6">
+				<h2 class="text-center">
+					Professor Login
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<form action="/loginStudent" method="GET" class="form form-group">
+					<label for="username" class="form">Username:</label><br>
+					<input type="text" id="username" name="username" class="form form-control"><br>
+					<label for="password" class="form">Password:</label><br>
+					<input type="password" id="password" name="password" class="form form-control">
+					<br>
+					<input type="submit" class="btn form btn-success">
+				</form>
+				New Student? <a href="SignUpStudent">SignUp</a>
+			</div>
+			<!-- <div class="col-lg-2">
+				<h2 class="text-center">
+					OR
+				</h2>
+			</div> -->
+			<div class="col-lg-6">
+				<form action="/loginProf" method="GET" class="form form-group">
+					<label for="username" class="form">Username:</label><br>
+					<input type="text" id="username" name="username" class="form form-control"><br>
+					<label for="password" class="form">Password:</label><br>
+					<input type="password" id="password" name="password" class="form form-control">
+					<br>
+					<input type="submit" class="btn form btn-success">
+				</form>
+				New Professor? <a href="SignUpProf">SignUp</a>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
