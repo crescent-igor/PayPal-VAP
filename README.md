@@ -65,10 +65,13 @@ It is a templating engine which makes life easier by allowing us to pass variabl
 * Alert pages
 ### Structure
 The project follows the structure:
-* node_modules: Consists of all the packages installed through npm
-* data: Consists of all the files containing Student and Professor data
-* public: Consists the style folders css, img and js.
-* src: Consists the pg files
-* views: Consists the static files ie. html files
-* index.js: The main file containing the cource code
-* backup: Files created during development for design and debugging
+
+| Components    	| Usage                                                           	|
+|---------------	|-----------------------------------------------------------------	|
+| node_modules 	  | Consists of all the packages installed through npm              	|
+| data          	| Consists of all the files containing Student and Professor data 	|
+| public        	| Consists the style folders css, img and js.                     	|
+| src           	| Consists the pug files                                          	|
+| views         	| Consists the static files ie. html files                        	|
+| index.js      	| The main file containing the cource code                        	|
+| backup        	| Files created during development for design and debugging       	|
