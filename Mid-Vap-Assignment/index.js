@@ -31,7 +31,7 @@ function readFile(filename) {
 
 app.get('/profDash', (req, res) => {
     sess = req.session;
-    console.log(sess)
+    // console.log(sess)
     var Display = [];
 
     readFile(path.join(__dirname, 'data', 'Prof.json'))
@@ -53,7 +53,7 @@ app.get('/profDash', (req, res) => {
             });
         })
         .then((DB) => {
-            console.log(Display)
+            // console.log(Display)
             res.render('profDash', {
                 username: sess.username,
                 display: Display
@@ -62,7 +62,7 @@ app.get('/profDash', (req, res) => {
 });
 
 app.get('/addCourse', (req, res) => {
-    console.log(req.query)
+    // console.log(req.query)
     courseAdd = req.query
     courseAdd.profID = req.session.username
     readFile(path.join(__dirname, 'data', 'Prof.json'))
@@ -380,6 +380,125 @@ app.get('/SignUpStudent', (req, res) => {
 app.get('/SignUpProf', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'ProfSignUp.html'));
 });
+
+
+app.get('/delCourseStudent', (req, res) => {
+    var query = JSON.parse(req.query.delCourse)
+    var userCreds = {
+        course: query[0],
+        profID: query[1],
+        courseName: query[2],
+        username: req.session.username
+    }
+    readFile(path.join(__dirname, 'data', 'Students.json'))
+        .then((DB) => {
+            var flag = true;
+            DB.forEach(element => {
+                if (element.username == userCreds.username) {
+                    element.Profs.splice(element.Courses.indexOf(userCreds.course), 1)
+                    element.CoursesNames.splice(element.Courses.indexOf(userCreds.course), 1)
+                    element.Courses.splice(element.Courses.indexOf(userCreds.course), 1)
+                }
+            });
+            return JSON.stringify(DB);
+        })
+        .then((content) => {
+            fs.writeFile(path.join(__dirname, 'data', 'Students.json'), content, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+            });
+        })
+        .then(() => {
+            readFile(path.join(__dirname, 'data', 'Prof.json'))
+                .then((DB) => {
+                    var flag = true;
+                    DB.forEach(element => {
+                        if (element.profID == userCreds.profID) {
+                            // console.log(element.Courses.indexOf(userCreds.course))
+                            element.Students[element.Courses.indexOf(userCreds.course)].splice(element.Students.indexOf(userCreds.username), 1)
+                        }
+                    });
+                    return JSON.stringify(DB);
+                })
+                .then((content) => {
+                    fs.writeFile(path.join(__dirname, 'data', 'Prof.json'), content, function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        res.render('alert', {
+                            alert: "Course Deleted!",
+                            link: "/dashboard",
+                            linkMessage: "Dashboard",
+                            label: "success"
+                        });
+                    });
+                })
+
+        })
+
+
+});
+
+
+app.get('/delCourseProf', (req, res) => {
+    var query = JSON.parse(req.query.delCourse)
+    console.log(query)
+    var userCreds = {
+        course: query.Course,
+        profID: req.session.username
+    }
+    readFile(path.join(__dirname, 'data', 'Prof.json'))
+        .then((DB) => {
+            var flag = true;
+            DB.forEach(element => {
+                if (element.profID == userCreds.profID) {
+
+                    element.Students.splice(element.Courses.indexOf(userCreds.course), 1)
+                    element.CoursesNames.splice(element.Courses.indexOf(userCreds.course), 1)
+                    element.Courses.splice(element.Courses.indexOf(userCreds.course), 1)
+                }
+            });
+            return JSON.stringify(DB);
+        })
+        .then((content) => {
+            fs.writeFile(path.join(__dirname, 'data', 'Prof.json'), content, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+            });
+        })
+        .then(() => {
+            readFile(path.join(__dirname, 'data', 'Students.json'))
+                .then((DB) => {
+                    var flag = true;
+                    DB.forEach(element => {
+                        if (element.Courses.indexOf(userCreds.course) > -1) {
+                            // console.log(element.Courses.indexOf(userCreds.course))
+                            element.Profs.splice(element.Courses.indexOf(userCreds.course), 1)
+                            element.CoursesNames.splice(element.Courses.indexOf(userCreds.course), 1)
+                            element.Courses.splice(element.Courses.indexOf(userCreds.course), 1)
+                        }
+                    });
+                    return JSON.stringify(DB);
+                })
+                .then((content) => {
+                    fs.writeFile(path.join(__dirname, 'data', 'Students.json'), content, function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        res.render('alert', {
+                            alert: "Course Deleted!",
+                            link: "/profDash",
+                            linkMessage: "Dashboard",
+                            label: "success"
+                        });
+                    });
+                })
+        })
+});
+
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));

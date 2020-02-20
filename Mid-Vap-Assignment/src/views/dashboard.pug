@@ -2,6 +2,9 @@ html
     head
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
         title Porto
+        link(href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet")
+        style  .normal {font-family: 'Saira Semi Condensed', sans-serif;} h1 { font-family: 'Pacifico', cursive;} .cursive { font-family: 'Pacifico',cursive;}
         style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
     body(style="background-image: url('img/bg2.jpg');")
         div(class="container jumbotron")
@@ -9,25 +12,29 @@ html
                 h1(class="text-center") Porto
         div(class="container")
             div(class="row jumbotron")
-                h2(id='Username') Registration Dashboard
-                h3(class="text-center") Registered Courses
-                table(class="table")
-                    tr
-                        th Course Code
-                        th Course Name
-                        th Professor
-                        th Status
-                    each val in taken
+                h2(id='Username' class="cursive") Registration Dashboard
+                h3(class="text-center" class="normal") Registered Courses
+                form(action='/delCourseStudent' class="normal")
+                    table(class="table table-hover normal")
                         tr
-                            td #{val[0]}
-                            td #{val[2]}
-                            td #{val[1]}
-                            td(class="text-success") Registrered
+                            th Course Code
+                            th Course Name
+                            th Professor
+                            th Status
+                            th Delete
+                        each val in taken
+                            tr
+                                td #{val[0]}
+                                td #{val[2]}
+                                td #{val[1]}
+                                td(class="text-success") Registrered
+                                td
+                                    input(type="radio" name="delCourse" value=val) 
+                    input(type="submit" value="Delete Course" class="btn btn-danger")
 
-
-                h3(class="text-center") Courses Offered
-                form(action='/chooseCourse')
-                    table(class="table table-hover")
+                h3(class="text-center normal") Courses Offered
+                form(action='/chooseCourse' class="normal")
+                    table(class="table table-hover normal")
                         tr
                             th Course Code
                             th Course Name

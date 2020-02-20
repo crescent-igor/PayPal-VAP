@@ -1,16 +1,19 @@
 html
     head
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+        link(href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet")
+        style  .normal {font-family: 'Saira Semi Condensed', sans-serif;} h1 { font-family: 'Pacifico', cursive;} .cursive { font-family: 'Pacifico',cursive;}
         title Porto
         style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
     body(style="background-image: url('img/bg2.jpg');")
         div(class="container jumbotron")
             div(class="row")
                 h1(class="text-center") Porto
-        dic(class="container")
+        dic(class="container normal")
             div(class="row")    
                 div(class="col text-center")
-                    h2(class="jumbotron") #{alert}
+                    h2(class="jumbotron cursive") #{alert}
                 form(action=link class="form text-center")
                     input(class="btn btn-lg btn-danger" type="submit" value=linkMessage) 
 

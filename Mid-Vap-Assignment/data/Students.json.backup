@@ -1,0 +1,67 @@
+[
+    {
+        "username": "Adarsh",
+        "password": "password",
+        "Courses": [],
+        "CoursesNames": [],
+        "Profs": []
+    },
+    {
+        "username": "Amrit",
+        "password": "pass",
+        "Courses": [
+            "1004"
+        ],
+        "CoursesNames": [
+            "Artificial Intelligence"
+        ],
+        "Profs": [
+            "Radhika"
+        ]
+    },
+    {
+        "username": "Pratinav",
+        "password": "iamakid",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Kriti",
+        "password": "wingedkittykat",
+        "Courses": [
+            "1010"
+        ],
+        "Profs": [
+            "Alok"
+        ],
+        "CoursesNames": [
+            "Deep Learning"
+        ]
+    },
+    {
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Abhishek",
+        "password": "maybeabhishek",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Saswat",
+        "password": "ole",
+        "Courses": [
+            "1070"
+        ],
+        "Profs": [
+            "Priya"
+        ],
+        "CoursesNames": [
+            "Power Electronics"
+        ]
+    }
+]

@@ -4,6 +4,23 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
+    <style>
+        .normal {
+            font-family: 'Saira Semi Condensed', sans-serif;
+        }
+
+        h1 {
+            font-family: 'Pacifico',
+                cursive;
+        }
+
+        .cursive {
+            font-family: 'Pacifico',
+                cursive;
+        }
+    </style>
+
     <style type="text/css">
         .jumbotron {
             background: rgb(215, 219, 212);
@@ -11,12 +28,7 @@
             background: rgba(162, 182, 185, 0.5);
         }
     </style>
-    <style>
-        h1 {
-            font-family: 'Pacifico',
-                cursive;
-        }
-    </style>
+
 </head>
 
 <body style="background-image: url('img/bg2.jpg');">
@@ -31,16 +43,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h3 class="text-center">
+                <h3 class="text-center cursive">
                     Welcome Professor!
                 </h3>
-                <h2 class="text-center text-primary">
+                <h2 class="text-center text-primary cursive">
                     Sign-Up
                 </h2>
             </div>
 
         </div>
-        <div class="row jumbotron">
+        <div class="row jumbotron normal">
             <div class="col">
                 <form action="/SignUpProfSubmit" method="GET" class="form form-group">
                     <label for="username" class="form">Username:</label><br>

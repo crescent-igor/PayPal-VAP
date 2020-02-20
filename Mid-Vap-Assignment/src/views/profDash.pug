@@ -1,6 +1,9 @@
 html
     head
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+        link(href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap" rel="stylesheet")
+        style  .normal {font-family: 'Saira Semi Condensed', sans-serif;} h1 { font-family: 'Pacifico', cursive;} .cursive { font-family: 'Pacifico',cursive;}
         title Porto
         style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
     body(style="background-image: url('img/bg2.jpg');")
@@ -9,23 +12,27 @@ html
                 h1(class="text-center") Porto
         div(class="container")
             div(class="row jumbotron")
-                h2(id='Username') Welcome #{username}
-                form(action='/addCourse')
+                h2(id='Username' class="cursive") Welcome #{username}
+                form(action='/addCourse'  class="normal")
                     label Course ID
                     input(type=text class="form form-control" name="courseID")
                     label Course Name
                     input(type=text class="form form-control" name="courseName")
                     br
                     input(type="submit" value="Add Course" class="btn-success btn")
-                h3(id='Username') Registered Classes  
-                table(class="table")
-                    each val in display
-                        tr
-                            th Course-ID #{val.Course}
-                        each student in val.Students
+                h3(id='Username'  class="cursive") Registered Classes  
+                form(action="/delCourseProf" class="normal")
+                    table(class="table")
+                        each val in display
                             tr
-                                td #{student} 
+                                th Course-ID #{val.Course}
+                                th
+                                    input(type="radio" name="delCourse" value=val)
 
+                            each student in val.Students
+                                tr
+                                    td #{student} 
+                    input(type="submit" value="Delete Course" class="btn btn-danger")
 
 
 

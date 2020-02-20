@@ -1,0 +1,49 @@
+html
+    head
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+        title Porto
+        style .jumbotron { background: rgb(215, 219, 212);background: rgba(162, 182, 185, 0.5);}
+    body(style="background-image: url('img/bg2.jpg');")
+        div(class="container jumbotron")
+            div(class="row")
+                h1(class="text-center") Porto
+        div(class="container")
+            div(class="row jumbotron")
+                h2(id='Username') Registration Dashboard
+                h3(class="text-center") Registered Courses
+                table(class="table")
+                    tr
+                        th Course Code
+                        th Course Name
+                        th Professor
+                        th Status
+                    each val in taken
+                        tr
+                            td #{val[0]}
+                            td #{val[2]}
+                            td #{val[1]}
+                            td(class="text-success") Registrered
+
+
+                h3(class="text-center") Courses Offered
+                form(action='/chooseCourse')
+                    table(class="table table-hover")
+                        tr
+                            th Course Code
+                            th Course Name
+                            th Professor
+                            th Select
+                        each val in list
+                            tr
+                                td #{val[0]}
+                                td #{val[1]}
+                                td #{val[2]}
+                                td
+                                    input(type="radio" name="chooseCourse" value=val) 
+                    input(type="submit" value="Choose Course" class="btn btn-primary")
+
+
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+        //- script(src="/home/amrit/Documents/VIT/win2019-2020/PayPal/Mid-Vap-Assignment/src/views/Teacher-Student-Handeler.js" type="text/javascript")

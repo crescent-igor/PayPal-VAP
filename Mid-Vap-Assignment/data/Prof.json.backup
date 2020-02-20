@@ -1,0 +1,102 @@
+[
+    {
+        "profID": "Alok",
+        "Courses": [
+            "1001",
+            "1010"
+        ],
+        "Students": [
+            [
+                "Amrit"
+            ],
+            [
+                "Kriti"
+            ]
+        ],
+        "CoursesNames": [
+            "Math",
+            "Deep Learning"
+        ],
+        "password": "password"
+    },
+    {
+        "profID": "Radhika",
+        "Courses": [
+            "1004"
+        ],
+        "Students": [
+            []
+        ],
+        "CoursesNames": [
+            "Artificial Intelligence"
+        ],
+        "password": "password"
+    },
+    {
+        "profID": "Geetha",
+        "Courses": [
+            "1001",
+            "2001"
+        ],
+        "Students": [
+            [],
+            []
+        ],
+        "CoursesNames": [
+            "Math",
+            "NLP"
+        ],
+        "password": "password"
+    },
+    {
+        "profID": "Rekha",
+        "Courses": [
+            "1001"
+        ],
+        "Students": [
+            []
+        ],
+        "CoursesNames": [
+            "Math"
+        ],
+        "password": "password"
+    },
+    {
+        "profID": "Harini",
+        "Courses": [
+            "1212",
+            "3021"
+        ],
+        "Students": [
+            [],
+            []
+        ],
+        "CoursesNames": [
+            "Operating Systems",
+            "Cybersecurity"
+        ],
+        "password": "iwannaspark"
+    },
+    {
+        "profID": "Berin",
+        "Courses": [],
+        "Students": [],
+        "CoursesNames": [],
+        "password": "eigenvector"
+    },
+    {
+        "profID": "Priya",
+        "Courses": [
+            "1070"
+        ],
+        "Students": [
+            [
+                "Saswat"
+            ]
+        ],
+        "CoursesNames": [
+            "Power Electronics"
+        ],
+        "password": "angel"
+    }
+]

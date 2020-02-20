@@ -1,1 +1,30 @@
-[{"profID":"Alok","Courses":["1001","1010"],"Students":[["Amrit"],["Kriti"]],"CoursesNames":["Math","Deep Learning"],"password":"password"},{"profID":"Radhika","Courses":["1001","1004"],"Students":[["Abhishek"],["Amrit","Amrit","Amrit","Amrit","Amrit","Amrit","Amrit","Amrit","Amrit","Amrit","Amrit"]],"CoursesNames":["Math","Artificial Intelligence"],"password":"password"},{"profID":"Geetha","Courses":["1001","2001"],"Students":[[],["Amrit"]],"CoursesNames":["Math","NLP"],"password":"password"},{"profID":"Rekha","Courses":["1001"],"Students":[[]],"CoursesNames":["Math"],"password":"password"},{"profID":"Harini","Courses":["2001","1212","3021"],"Students":[["Pratinav"],[],[]],"CoursesNames":["Machine Learning","Operating Systems","Cybersecurity"],"password":"iwannaspark"},{"profID":"Berin","Courses":[],"Students":[],"CoursesNames":[],"password":"eigenvector"}]
+[
+    {
+        "profID": "Harini",
+        "Courses": [
+            "1001",
+            "1002",
+            "1003"
+        ],
+        "Students": [
+            [],
+            [
+                "Kriti"
+            ],
+            []
+        ],
+        "CoursesNames": [
+            "Opearting Systems",
+            "High Performance Computing",
+            "Computer Architecture"
+        ],
+        "password": "harini"
+    },
+    {
+        "profID": "Alok",
+        "Courses": [],
+        "Students": [],
+        "CoursesNames": [],
+        "password": "alok"
+    }
+]
