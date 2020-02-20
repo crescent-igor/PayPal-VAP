@@ -1,10 +1,12 @@
+# PayPal-VAP
 
-# Mid-VAP Assignment
+## Mid-VAP Assignment
 
-## Porto
+### Porto
 A simple application to make course selection and registration a click-away
 
-## Technology Stack
+### Technology Stack
 * NodeJS
+..1
 * HTML
 * Bootstrap
