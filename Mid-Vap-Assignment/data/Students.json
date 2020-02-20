@@ -1,1 +1,108 @@
-[{"username":"Amrit","password":"amrit","Courses":["2002","1001"],"Profs":["Alok","Harini"],"CoursesNames":["Software Engineering","Opearting Systems"]},{"username":"Kelly","password":"kelly","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Mia","password":"mia","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Shreyansh","password":"shreyansh","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"John","password":"john","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Usha","password":"usha","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Perry","password":"perry","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Harry","password":"harry","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Abhishek","password":"abhishek","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Nikhil","password":"nikhil","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Adarsh","password":"adarsh","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Amit","password":"amit","Courses":[],"Profs":[],"CoursesNames":[]},{"username":"Kriti","password":"kriti","Courses":["1002"],"Profs":["Harini"],"CoursesNames":["High Performance Computing"]}]
+[
+    {
+        "username": "Amrit",
+        "password": "amrit",
+        "Courses": [
+            "2002",
+            "1001"
+        ],
+        "Profs": [
+            "Alok",
+            "Harini"
+        ],
+        "CoursesNames": [
+            "Software Engineering",
+            "Opearting Systems"
+        ]
+    },
+    {
+        "username": "Kelly",
+        "password": "kelly",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Mia",
+        "password": "mia",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Shreyansh",
+        "password": "shreyansh",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "John",
+        "password": "john",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Usha",
+        "password": "usha",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Perry",
+        "password": "perry",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Harry",
+        "password": "harry",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Abhishek",
+        "password": "abhishek",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Nikhil",
+        "password": "nikhil",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Adarsh",
+        "password": "adarsh",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Amit",
+        "password": "amit",
+        "Courses": [],
+        "Profs": [],
+        "CoursesNames": []
+    },
+    {
+        "username": "Kriti",
+        "password": "kriti",
+        "Courses": [
+            "1002"
+        ],
+        "Profs": [
+            "Harini"
+        ],
+        "CoursesNames": [
+            "High Performance Computing"
+        ]
+    }
+]

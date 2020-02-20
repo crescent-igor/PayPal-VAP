@@ -81,3 +81,27 @@ The project follows the structure:
 | views         	| Consists the static files ie. html files                        	|
 | index.js      	| The main file containing the source code                        	|
 | backup        	| Files created during development for design and debugging       	|
+
+
+### Pre-loaded Data
+
+#### Students 
+| Username   	| Password                                                           	|
+|---------------	|-----------------------------------------------------------------	|
+| Amrit  |  amrit	|
+| Adarsh	|  adarsh	|
+| Abhishek	|  abhishek	|
+| Kriti	|  	kriti|  
+| Shreyansh	|  shreyansh	|
+| Harry	|  	harry|
+| Perry	|  	perry|
+
+
+#### Professors 
+| Username   	| Password                                                           	|
+|---------------	|-----------------------------------------------------------------	|
+| Harini  |  harini	|
+| Alok	|  alok	|
+| Radhika	|  radhika	|
+| Hemanth	|  	hemanth|  
+| Rajesh	|  rajesh	|
