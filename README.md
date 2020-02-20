@@ -5,6 +5,13 @@
 ### Porto
 A simple application to make course selection and registration a click-away
 
+### Run
+clone the repository:
+```
+cd Mid-Vap-Assignment/
+npm start
+```
+
 ### Technology Stack
 * NodeJS
 * HTML
@@ -43,4 +50,25 @@ Promises are useful when a synchronized structure is required in an application.
 * Choosing a course
     1. Reading the records of both Student and Professor
     2. If a course with same course ID taken under a different or the same Professor then it is not to be displayed
-    3. after processing the choice updating the Professor and Student files
+    3. After processing the choice updating the Professor and Student files
+#### Middleware
+Middleware has been used for the following tasks:
+* Setting 'public' as a static directory
+* Enable the webpages to use bootstrap, CSS, jquery and image files
+* Sessions to check the username across the application session
+#### Express
+The application is built using express for easier routing and coding. It also helps in utilizing template engines like pug, static files like html, load styles from css, bootstrap and also provides capabilities like express-session.
+#### Pug
+It is a templating engine which makes life easier by allowing us to pass variables easily into the webpage with a other js capabilities like loops and conditionals. It is being used for the following:
+* Professor dashboard
+* Student dashboard
+* Alert pages
+### Structure
+The project follows the structure:
+* node_modules: Consists of all the packages installed through npm
+* data: Consists of all the files containing Student and Professor data
+* public: Consists the style folders css, img and js.
+* src: Consists the pg files
+* views: Consists the static files ie. html files
+* index.js: The main file containing the cource code
+* backup: Files created during development for design and debugging
