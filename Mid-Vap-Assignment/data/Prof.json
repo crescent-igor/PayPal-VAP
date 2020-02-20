@@ -22,9 +22,33 @@
     },
     {
         "profID": "Alok",
+        "Courses": [
+            "2001",
+            "2002"
+        ],
+        "Students": [
+            [],
+            []
+        ],
+        "CoursesNames": [
+            "Web Mining",
+            "Software Engineering"
+        ],
+        "password": "alok"
+    },
+    {
+        "profID": "Radhika",
         "Courses": [],
         "Students": [],
         "CoursesNames": [],
-        "password": "alok"
+        "password": "radhika"
+    },
+    {
+        "profID": "Hemanth",
+        "Courses": [],
+        "Students": [],
+        "CoursesNames": [],
+        "password": "hemanth"
     }
+
 ]
