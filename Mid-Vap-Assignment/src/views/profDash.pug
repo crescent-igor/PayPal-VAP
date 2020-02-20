@@ -11,16 +11,18 @@ html
             div(class="row")
                 h1(class="text-center") Porto
         div(class="container")
+            form(action="/" class="text-right")
+                input(type="submit" value="Logout" class="btn btn-danger float-right")
             div(class="row jumbotron")
                 h2(id='Username' class="cursive") Welcome #{username}
-                form(action='/addCourse'  class="normal")
+                form(action='/addCourse' class="normal")
                     label Course ID
                     input(type=text class="form form-control" name="courseID")
                     label Course Name
                     input(type=text class="form form-control" name="courseName")
                     br
                     input(type="submit" value="Add Course" class="btn-success btn")
-                h3(id='Username'  class="cursive") Registered Classes  
+                h3(id='Username' class="cursive") Registered Classes  
                 form(action="/delCourseProf" class="normal")
                     table(class="table")
                         each val in display

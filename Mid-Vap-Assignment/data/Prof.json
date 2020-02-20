@@ -7,7 +7,9 @@
             "1003"
         ],
         "Students": [
-            [],
+            [
+                "Amrit"
+            ],
             [
                 "Kriti"
             ],
@@ -28,7 +30,9 @@
         ],
         "Students": [
             [],
-            []
+            [
+                "Amrit"
+            ]
         ],
         "CoursesNames": [
             "Web Mining",
@@ -50,5 +54,4 @@
         "CoursesNames": [],
         "password": "hemanth"
     }
-
 ]
