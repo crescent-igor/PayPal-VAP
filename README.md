@@ -9,6 +9,7 @@ A simple application to make course selection and registration a click-away
 clone the repository:
 ```
 cd Mid-Vap-Assignment/
+npm install
 npm start
 ```
 
