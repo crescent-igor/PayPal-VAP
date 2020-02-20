@@ -15,7 +15,7 @@ npm start
 * HTML
 * Bootstrap
 ### Application Goals
-The application revolves around the logic of eventcreation and subscriber. In this case the creatorof event being the professor and the subscriberbeing students. This application provides aback-end logic and interface for the following entities carrying out the following tasks:
+The application revolves around the logic of event creation and subscriber. In this case the creator of event being the professor and the subscriber being students. This application provides a back-end logic and interface for the following entities carrying out the following tasks:
 * Professor
   * SignUp
   * Login
@@ -34,7 +34,7 @@ The application revolves around the logic of eventcreation and subscriber. In th
 The application is planned in such a way that it covers maximum concepts taught in class to accomplish various tasks. To do so, instead of databases the use of file system is adopted where in data is stored in the format of JSON files. The next section explains the details of other concepts used in the code such as pug-templates, callbacks, promises, middlewares, express, nodemon etc.
 ### Concepts
 #### Promises
-Promises are useful when a synchronized structure is required in an application. For the scenarios posed in creation of this application there were many such instances where a sequential approach was neccessary, a few are listed below:
+Promises are useful when a synchronized structure is required in an application. For the scenarios posed in creation of this application there were many such instances where a sequential approach was necessary, a few are listed below:
 * Check the presence of a user in the file system the following steps need to be performed in order:
     1. Reading the records
     2. Checking for the user in the loaded records
@@ -42,7 +42,7 @@ Promises are useful when a synchronized structure is required in an application.
 * Add a new user to the file system
     1. Reading the records
     2. Checking if user already exists
-    3. Add user if does'nt already exist else notify user
+    3. Add user if doesn't already exist else notify user
 * Adding a new course
     1. Reading the records
     2. Checking if another course exists with the same course ID
@@ -65,7 +65,7 @@ Middleware has been used for the following tasks:
 #### Express
 The application is built using express for easier routing and coding. It also helps in utilizing template engines like pug, static files like html, load styles from css, bootstrap and also provides capabilities like express-session.
 #### Pug
-It is a templating engine which makes life easier by allowing us to pass variables easily into the webpage with a other js capabilities like loops and conditionals. It is being used for the following:
+It is a templating engine which makes life easier by allowing us to pass variables easily into the webpage with another js capabilities like loops and conditionals. It is being used for the following:
 * Professor dashboard
 * Student dashboard
 * Alert pages
@@ -79,5 +79,5 @@ The project follows the structure:
 | public        	| Consists the style folders css, img and js.                     	|
 | src           	| Consists the pug files                                          	|
 | views         	| Consists the static files ie. html files                        	|
-| index.js      	| The main file containing the cource code                        	|
+| index.js      	| The main file containing the source code                        	|
 | backup        	| Files created during development for design and debugging       	|
