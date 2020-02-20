@@ -22,13 +22,15 @@ The application revolves around the logic of eventcreation and subscriber. In th
   * SignUp
   * Login
   * Add courses
+  * Delete Course
   * View courses
   * View students registered
 * Student
   * SignUp
   * Login
   * View courses which he/she can take
-  * Choose courses
+  * Register courses
+  * De-register course
   * View Registered courses
 
 The application is planned in such a way that it covers maximum concepts taught in class to accomplish various tasks. To do so, instead of databases the use of file system is adopted where in data is stored in the format of JSON files. The next section explains the details of other concepts used in the code such as pug-templates, callbacks, promises, middlewares, express, nodemon etc.
@@ -51,6 +53,12 @@ Promises are useful when a synchronized structure is required in an application.
     1. Reading the records of both Student and Professor
     2. If a course with same course ID taken under a different or the same Professor then it is not to be displayed
     3. After processing the choice updating the Professor and Student files
+* Deleting a course
+    1. Reading the records of both Student and Professor
+    2. Finding elements in student and professor to delete
+    3. After Deletion updating the Professor and Student files
+
+
 #### Middleware
 Middleware has been used for the following tasks:
 * Setting 'public' as a static directory
