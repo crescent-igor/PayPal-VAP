@@ -14,7 +14,6 @@ app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')))
 app.use('/img', express.static(path.join(__dirname, '/public/img')))
 
-
 app.set('views', './src/views');
 app.set('view engine', 'pug');
 
@@ -27,7 +26,6 @@ function readFile(filename) {
     });
     return promise
 }
-
 
 app.get('/profDash', (req, res) => {
     sess = req.session;
@@ -94,7 +92,6 @@ app.get('/addCourse', (req, res) => {
 
 });
 
-
 app.get('/loginProf', (req, res) => {
     userCreds = req.query
     console.log(userCreds)
@@ -124,8 +121,6 @@ app.get('/loginProf', (req, res) => {
         })
         .catch((err) => (console.log(err)))
 });
-
-
 
 app.get('/loginStudent', (req, res) => {
     console.log(req.query)
@@ -206,7 +201,6 @@ app.get('/dashboard', (req, res) => {
         });
 });
 
-
 app.get('/chooseCourse', (req, res) => {
     console.log(req.query)
     var query = JSON.parse(req.query.chooseCourse)
@@ -270,8 +264,6 @@ app.get('/chooseCourse', (req, res) => {
 
 });
 
-
-
 app.get('/SignUpStudentSubmit', (req, res) => {
     userCreds = req.query
     readFile(path.join(__dirname, 'data', 'Students.json'))
@@ -321,7 +313,6 @@ app.get('/SignUpStudentSubmit', (req, res) => {
         });
 
 });
-
 
 app.get('/SignUpProfSubmit', (req, res) => {
     userCreds = req.query
@@ -381,7 +372,6 @@ app.get('/SignUpProf', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'ProfSignUp.html'));
 });
 
-
 app.get('/delCourseStudent', (req, res) => {
     var query = JSON.parse(req.query.delCourse)
     var userCreds = {
@@ -440,7 +430,6 @@ app.get('/delCourseStudent', (req, res) => {
 
 });
 
-
 app.get('/delCourseProf', (req, res) => {
     var query = JSON.parse(req.query.delCourse)
     console.log(query)
@@ -498,12 +487,9 @@ app.get('/delCourseProf', (req, res) => {
         })
 });
 
-
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
-
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");
